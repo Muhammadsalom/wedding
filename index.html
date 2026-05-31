@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу — Мухаммадсалом и Нозия</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fcfbfa;
+            color: #333333;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            color: #2c2c2c;
+            text-align: center;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #a38970;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '♦';
+            display: block;
+            font-size: 1rem;
+            color: #d4c5b9;
+            margin-top: 10px;
+        }
+
+        /* 1. ГЛАВНЫЙ ЭКРАН */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(252, 251, 250, 0.85), rgba(252, 251, 250, 0.85)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920') no-repeat center center/cover;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #e5dfd9;
+        }
+
+        .hero-monogram {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: #a38970;
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            color: #a38970;
+            font-weight: 600;
+            margin: 20px 0;
+            line-height: 1.1;
+        }
+
+        .hero-date {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .scroll-btn {
+            margin-top: 50px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #a38970;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        /* 2. ТАЙМЕР ОБРАТНОГО ОТСЧЕТА */
+        .countdown-section {
+            background-color: #faf8f5;
+            border-bottom: 1px solid #f0eae4;
+            text-align: center;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .countdown-item {
+            background: #ffffff;
+            flex: 1;
+            padding: 20px 10px;
+            border: 1px solid #e5dfd9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 3. НАША ИСТОРИЯ */
+        .story-timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 30px;
+            border-left: 1px solid #d4c5b9;
+            text-align: left;
+        }
+
+        .story-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .story-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: #a38970;
+            border: 4px solid #fcfbfa;
+        }
+
+        .story-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #a38970;
+            margin-bottom: 5px;
+        }
+
+        .story-title {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* 4. РАСПИСАНИЕ ДНЯ */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .schedule-item {
+            background: #fff;
+            padding: 30px 20px;
+            border: 1px solid #e5dfd9;
+            text-align: center;
+        }
+
+        .schedule-time {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: #a38970;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* 5. ДРЕСС-КОД (ОБНОВЛЕННЫЙ) */
+        .dresscode-box {
+            background: #faf8f5;
+            padding: 40px;
+            border: 1px solid #e5dfd9;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(163, 137, 112, 0.05);
+        }
+
+        .dresscode-text {
+            font-size: 1.15rem;
+            color: #2c2c2c;
+            font-weight: 500;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .dresscode-subtext {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #a38970;
+        }
+
+        /* 6. МЕСТО И ДЕТАЛИ */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .details-card {
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #e5dfd9;
+        }
+
+        /* 7. АНКЕТА ГОСТЯ (RSVP) */
+        .rsvp-section {
+            background-color: #faf8f5;
+            border-top: 1px solid #f0eae4;
+        }
+
+        .rsvp-form {
+            background: #ffffff;
+            padding: 40px;
+            border: 1px solid #e5dfd9;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"], .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d4c5b9;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background-color: #fcfbfa;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 5px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: #a38970;
+            color: white;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #8c735c;
+        }
+
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: #2c2c2c;
+            color: #fcfbfa;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .details-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-names { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-container { gap: 8px; }
+            .countdown-number { font-size: 1.8rem; }
+            .rsvp-form { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="hero-monogram">M & N</div>
+        <h1>Приглашение на свадьбу</h1>
+        <p>Мы рады поделиться с вами важным моментом нашей жизни</p>
+        <div class="hero-names">Мухаммадсалом<br>&<br>Нозия</div>
+        <div class="hero-date">12 ИЮЛЯ 2026</div>
+        <button class="scroll-btn" onclick="document.getElementById('timer').scrollIntoView();">↓</button>
+    </div>
+
+    <section id="timer" class="countdown-section">
+        <h2 class="section-title">До торжества осталось</h2>
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Дней</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Часов</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Минут</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Секунд</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Наша история любви</h2>
+        <p style="text-align: center; max-width: 500px; margin: 0 auto 30px auto; color: #666;">Несколько прекрасных мгновений, которые привели нас к этому счастливому дню.</p>
+        <div class="story-timeline">
+            <div class="story-item">
+                <div class="story-date">Осень 2024</div>
+                <div class="story-title">Первая встреча</div>
+                <p>День, когда наши пути пересеклись, изменив жизнь навсегда.</p>
+            </div>
+            <div class="story-item">
+                <div class="story-date">Весна 2025</div>
+                <div class="story-title">Первое «Я люблю тебя»</div>
+                <p>Слова, которые зажгли огонь в наших сердцах и сделали нас неразлучными.</p>
+            </div>
+            <div class="story-item">
+                <div class="story-date">Зима 2025</div>
+                <div class="story-title">Главное «Да!»</div>
+                <p>Трогательный момент предложения, когда мы решили идти рука об руку всю жизнь.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #faf8f5; border-top: 1px solid #f0eae4; border-bottom: 1px solid #f0eae4;">
+        <h2 class="section-title">Программа дня</h2>
+        <div class="schedule-grid">
+            <div class="schedule-item">
+                <span class="schedule-time">18:30</span>
+                <h3>Сбор гостей</h3>
+                <p>Приветственные напитки, легкий фуршет и встреча близких.</p>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">19:00</span>
+                <h3>Торжественная часть</h3>
+                <p>Начало главного свадебного праздника.</p>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">23:00</span>
+                <h3>Свадебный торт</h3>
+                <p>Сладкий финал нашего праздничного вечера.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Дресс-код</h2>
+        <div class="dresscode-box">
+            <p class="dresscode-text">Для нас не важен цвет или стиль вашей одежды. Вы можете прийти на нашу свадьбу даже в рабочей одежде!</p>
+            <p class="dresscode-subtext">Мы будем искренне рады абсолютно каждому гостю!</p>
+        </div>
+    </section>
+
+    <section style="padding-top: 0;">
+        <div class="details-grid">
+            <div class="details-card">
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #a38970;">Где всё пройдет</h3>
+                <p><strong>Туйхонаи «Чорчинор»</strong></p>
+                <p>с. Ворух</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Ждем вас к 19:00, чтобы начать этот незабываемый вечер вместе!</p>
+            </div>
+            <div class="details-card">
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #a38970;">Пожелания</h3>
+                <p>Ваше присутствие — главный подарок для нас! Но если вы хотите сделать материальный презент, мы будем признательны за конверт.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Будем рады вашим теплым улыбкам, искренним пожеланиям и праздничному настроению!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp-section">
+        <h2 class="section-title">Подтверждение присутствия</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #666;">Пожалуйста, ответьте на несколько вопросов ниже, чтобы мы лучше подготовились к празднику.</p>
+        
+        <form class="rsvp-form" id="weddingForm">
+            <div class="form-group">
+                <label for="name">Ваше имя и фамилия</label>
+                <input type="text" id="name" placeholder="Введите имя" required>
+            </div>
+            <div class="form-group">
+                <label>Придете ли вы?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="attendance" id="attendYes" value="Да, с удовольствием" checked> Да, приду</label>
+                    <label><input type="radio" name="attendance" id="attendNo" value="К сожалению, не смогу"> Не смогу</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="drinks">Предпочтения по напиткам</label>
+                <select id="drinks">
+                    <option value="Национальный Зеленый/Черный Чай">Национальный чай (зеленый/черный)</option>
+                    <option value="Натуральные соки">Натуральные соки</option>
+                    <option value="Газированные напитки">Газированные напитки</option>
+                    <option value="Минеральная вода">Минеральная вода</option>
+                </select>
+            </div>
+            <button type="button" class="btn-submit" onclick="sendToWhatsApp()">Отправить ответы</button>
+        </form>
+    </section>
+
+    <footer>
+        Мухаммадсалом & Нозия • 2026
+    </footer>
+
+    <script>
+        const weddingDate = new Date(2026, 6, 12, 19, 0, 0).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
+
+            if (difference < 0) {
+                document.querySelector('.countdown-title').innerHTML = "Этот счастливый день настал!";
+                document.querySelector('.countdown-container').style.display = 'none';
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            
+            let attendance = "Да, с удовольствием";
+            if(document.getElementById('attendNo').checked) {
+                attendance = "К сожалению, не смогу";
+            }
+            
+            const drinks = document.getElementById('drinks').value;
+
+            if(!name) {
+                alert("Пожалуйста, введите ваше имя.");
+                return;
+            }
+
+            const phoneNumber = "992918837038"; 
+            
+            const text = `Привет! Отправляю ответ на приглашение.%0A%0A*Имя:* ${encodeURIComponent(name)}%0A*Присутствие:* ${encodeURIComponent(attendance)}%0A*Напитки:* ${encodeURIComponent(drinks)}`;
+            const url = `https://wa.me/${phoneNumber}?text=${text}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
