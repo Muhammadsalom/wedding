@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Даъватномаи Тӯёна — Муҳаммадсалом ва Нозия</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdfcfb;
+            color: #3d3d3d;
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        section {
+            padding: 100px 20px;
+            max-width: 100%;
+            text-align: center;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Қуттии махсус барои хондани осони матн дар рӯи расмҳо */
+        .section-content {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: #c5a880;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -30px auto 40px auto;
+        }
+
+        .section-divider::before, .section-divider::after {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background-color: #e0d5c1;
+            margin: 0 15px;
+        }
+
+        .section-divider span {
+            color: #c5a880;
+            font-size: 0.8rem;
+        }
+
+        /* 1. САҲИФАИ АВВАЛ (HERO) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(253, 252, 251, 0.85), rgba(253, 252, 251, 0.85)), 
+                        url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=1920') no-repeat center center/cover;
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid #e0d5c1;
+            pointer-events: none;
+        }
+
+        .hero-monogram {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            color: #c5a880;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #7a7a7a;
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .hero-names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            color: #1a1a1a;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 25px 0;
+        }
+
+        .hero-names span {
+            display: block;
+            font-size: 2.5rem;
+            color: #c5a880;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .hero-date {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 25px;
+            color: #4a4a4a;
+            border-top: 1px solid #e0d5c1;
+            border-bottom: 1px solid #e0d5c1;
+            padding: 10px 30px;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            bottom: 40px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #c5a880;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            z-index: 3;
+        }
+
+        /* 2. БАХШИ ТАЙМЕР Бо Расм */
+        .countdown-section {
+            background-image: linear-gradient(rgba(250, 247, 242, 0.92), rgba(250, 247, 242, 0.92)), 
+                              url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200');
+            border-top: 1px solid #f2ebe0;
+            border-bottom: 1px solid #f2ebe0;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.95);
+            flex: 1;
+            padding: 25px 15px;
+            border-radius: 4px;
+            border: 1px solid #eeeae3;
+            box-shadow: 0 10px 30px rgba(197, 168, 128, 0.05);
+        }
+
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            color: #8a8a8a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* 3. БАХШИ ШЕЪР Бо Расм */
+        .poem-section {
+            background-image: linear-gradient(rgba(253, 252, 251, 0.88), rgba(253, 252, 251, 0.88)), 
+                              url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1200');
+        }
+
+        .poem-box {
+            max-width: 650px;
+            margin: 0 auto;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            line-height: 2.3;
+            color: #2c2c2c;
+            padding: 50px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #f2ebe0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+        }
+
+        /* 4. БАРНОМАИ ҶАШН Бо Расм */
+        .schedule-section {
+            background-image: linear-gradient(rgba(250, 247, 242, 0.9), rgba(250, 247, 242, 0.9)), 
+                              url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200');
+            border-top: 1px solid #f2ebe0;
+            border-bottom: 1px solid #f2ebe0;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .schedule-item {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border: 1px solid #f2ebe0;
+            transition: all 0.4s ease;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(197, 168, 128, 0.1);
+            border-color: #c5a880;
+        }
+
+        .schedule-icon {
+            font-size: 1.5rem;
+            color: #c5a880;
+            margin-bottom: 15px;
+        }
+
+        .schedule-time {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: #c5a880;
+            font-weight: 300;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .schedule-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        /* 5. ДРЕСС-КОД Бо Расм */
+        .dresscode-section {
+            background-image: linear-gradient(rgba(253, 252, 251, 0.9), rgba(253, 252, 251, 0.9)), 
+                              url('https://images.unsplash.com/photo-1519225495846-b9cf683ec2db?q=80&w=1200');
+        }
+
+        .dresscode-box {
+            background: rgba(250, 247, 242, 0.95);
+            padding: 60px 40px;
+            border: 1px solid #f2ebe0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .dresscode-text {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            font-weight: 300;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        .dresscode-subtext {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #c5a880;
+        }
+
+        /* 6. МАКОН ВА ХОҲИШҲО */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .details-card {
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #f2ebe0;
+            border-left: 3px solid #c5a880;
+        }
+
+        .details-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #c5a880;
+            text-align: left;
+        }
+
+        /* 7. АНКЕТА (RSVP) Бо Расм */
+        .rsvp-section {
+            background-image: linear-gradient(rgba(250, 247, 242, 0.92), rgba(250, 247, 242, 0.92)), 
+                              url('https://images.unsplash.com/photo-1478812954026-9c750f0e89fc?q=80&w=1200');
+            border-top: 1px solid #f2ebe0;
+        }
+
+        .rsvp-form {
+            background: #ffffff;
+            padding: 50px 40px;
+            border: 1px solid #f2ebe0;
+            max-width: 550px;
+            margin: 0 auto;
+            box-shadow: 0 15px 50px rgba(197, 168, 128, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .form-group input[type="text"], .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #e0d5c1;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background-color: #c5a880;
+            color: white;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #b0936b;
+            letter-spacing: 3px;
+        }
+
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            background: #111111;
+            color: #e0d5c1;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .details-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-names { font-size: 3.8rem; }
+            .section-title { font-size: 2.3rem; }
+            .poem-box { font-size: 1.5rem; padding: 30px 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-container { gap: 10px; }
+            .countdown-number { font-size: 2rem; }
+            .rsvp-form { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="hero-border"></div>
+        <div class="hero-monogram">M & N</div>
+        <h1>Даъватномаи Тӯёна</h1>
+        <p style="letter-spacing: 1px; color: #666; font-weight: 300;">Ҷашни хонадоршавӣ</p>
+        <div class="hero-names">Муҳаммадсалом <span>ва</span> Нозия</div>
+        <div class="hero-date">12 ИЮЛИ СОЛИ 2026</div>
+        <button class="scroll-btn" onclick="document.getElementById('timer').scrollIntoView();">↓</button>
+    </div>
+
+    <section id="timer" class="countdown-section">
+        <div class="section-content">
+            <h2 class="section-title">То рӯзи тӯй боқӣ монд</h2>
+            <div class="section-divider"><span>♦</span></div>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Рӯз</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Соат</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Дақиқа</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Сония</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="poem-section">
+        <div class="section-content">
+            <h2 class="section-title">Гулгардони Муҳаббат</h2>
+            <div class="section-divider"><span>♦</span></div>
+            <div class="poem-box">
+                <p>Биё, ҷоно, ки авҷи қисмати мост,</p>
+                <p>Рӯзи шодиву бахту давлати мост.</p>
+                <p>Канори ҳам ба соҳиббахтӣ рафтан,</p>
+                <p>Умеди зиндагиву иззати мост.</p>
+                <br>
+                <p style="color: #c5a880;">Қадамҳои шумо дар маҳфили мо,</p>
+                <p style="color: #c5a880;">Шавад нуру сафои маҳфили мо!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule-section">
+        <div class="section-content">
+            <h2 class="section-title">Барномаи ҷашн</h2>
+            <div class="section-divider"><span>♦</span></div>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <div class="schedule-icon">✨</div>
+                    <span class="schedule-time">18:30</span>
+                    <h3>Қабули меҳмонон</h3>
+                    <p>Оғози ҷамъомади меҳмонони азиз ва суҳбатҳои самимии тӯёна.</p>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-icon">👑</div>
+                    <span class="schedule-time">19:00</span>
+                    <h3>Тӯйи Тантанавӣ</h3>
+                    <p>Оғози қисми асосии ҷашни хонадоршавӣ, табрикот ва базми шодӣ.</p>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-icon">🎂</div>
+                    <span class="schedule-time">23:00</span>
+                    <h3>Торти Тӯёна</h3>
+                    <p>Лаҳзаи ширин, буридани торти ҷашнӣ ва хотимаи шаб.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dresscode-section">
+        <div class="section-content">
+            <h2 class="section-title">Либоси Меҳмонон</h2>
+            <div class="section-divider"><span>♦</span></div>
+            <div class="dresscode-box">
+                <p class="dresscode-text">Барои мо ранг ё намуди либоси шумо тамоман муҳим нест. Шумо метавонед ба тӯйи мо ҳатто бо либосҳои кории худ ташриф оред!</p>
+                <p class="dresscode-subtext">Мо аз омадани ҳар як меҳмон аз таҳти дил шод хоҳем шуд!</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding-top: 0; background-color: #fdfcfb;">
+        <div class="section-content" style="max-width: 900px;">
+            <div class="details-grid">
+                <div class="details-card">
+                    <h3>Макони баргузорӣ</h3>
+                    <p><strong>Тӯйхонаи «Чорчинор»</strong></p>
+                    <p>деҳаи Ворух</p>
+                    <p style="margin-top: 15px; font-size: 0.85rem; color: #888; font-style: italic;">Мо шуморо соати 19:00 интизорем, то ин шаби фаромӯшнашавандаро якҷоя оғоз намоем!</p>
+                </div>
+                <div class="details-card">
+                    <h3>Хоҳиши мо</h3>
+                    <p>Ташрифи шумо барои мо беҳтарин тӯҳфа аст! Агар хоҳед, ки тӯҳфаи моддӣ намоед, мо барои лифофа (конверт) миннатдор хоҳем буд.</p>
+                    <p style="margin-top: 15px; font-size: 0.85rem; color: #888; font-style: italic;">Мо интизори табассуми баҳории шумо ва таманниёти некатон ҳастем!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp-section">
+        <div class="section-content">
+            <h2 class="section-title">Тасдиқи ташриф</h2>
+            <div class="section-divider"><span>♦</span></div>
+            <p style="text-align: center; margin-bottom: 40px; color: #666; font-weight: 300;">Лутфан, ба саволҳо ҷавоб диҳед, то мо ба ҷашн беҳтар омода шавем.</p>
+            
+            <form class="rsvp-form" id="weddingForm">
+                <div class="form-group">
+                    <label for="name">Ном ва насаби шумо</label>
+                    <input type="text" id="name" placeholder="Номи худро ворид кунед" required>
+                </div>
+                <div class="form-group">
+                    <label>Оё шумо ташриф meоред?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="attendance" id="attendYes" value="Бале, бо камоли мамнуният" checked> Бале, меоям</label>
+                        <label><input type="radio" name="attendance" id="attendNo" value="Мутаассифона, омада наметавонам"> Наметавонам</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="drinks">Интихоби нӯшокиҳо</label>
+                    <select id="drinks">
+                        <option value="Чои миллии кабуд/сиёх">Чойи миллӣ (кабуд/сиёҳ)</option>
+                        <option value="Афшурахо (сок)">Афшураҳо (сок)</option>
+                        <option value="Нушокихои газнок">Нӯшокиҳои газнок</option>
+                        <option value="Оби чашма">Оби оддӣ / минералӣ</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-submit" onclick="sendToWhatsApp()">Ҷавобро фиристодан</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        Муҳаммадсалом & Нозия • 2026
+    </footer>
+
+    <script>
+        const weddingDate = new Date(2026, 6, 12, 19, 0, 0).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
+
+            if (difference < 0) {
+                document.querySelector('.countdown-section h2').innerHTML = "Рӯзи деринтизор фаро расид!";
+                document.querySelector('.countdown-container').style.display = 'none';
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            
+            let attendance = "Бале, бо камоли мамнуният";
+            if(document.getElementById('attendNo').checked) {
+                attendance = "Мутаассифона, омада наметавонам";
+            }
+            
+            const drinks = document.getElementById('drinks').value;
+
+            if(!name) {
+                alert("Лутфан, номи худро ворид кунед.");
+                return;
+            }
+
+            const phoneNumber = "992918837038"; 
+            
+            const text = `Ассалому алейкум! Ҷавоб ба даъватнома.%0A%0A*Ном:* ${encodeURIComponent(name)}%0A*Ташриф:* ${encodeURIComponent(attendance)}%0A*Нушоки:* ${encodeURIComponent(drinks)}`;
+            const url = `https://wa.me/${phoneNumber}?text=${text}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
