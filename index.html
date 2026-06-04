@@ -138,38 +138,7 @@
             margin-top: 25px;
         }
 
-        /* 2. ТАЙМЕР */
-        .countdown-section {
-            background-image: linear-gradient(rgba(250, 247, 242, 0.92), rgba(250, 247, 242, 0.92)), 
-                              url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200');
-            border-top: 1px solid #f2ebe0;
-            border-bottom: 1px solid #f2ebe0;
-        }
-
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .countdown-item {
-            background: rgba(255, 255, 255, 0.95);
-            flex: 1;
-            padding: 25px 15px;
-            border: 1px solid #eeeae3;
-            box-shadow: 0 10px 30px rgba(197, 168, 128, 0.05);
-        }
-
-        .countdown-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            color: #1a1a1a;
-            display: block;
-        }
-
-        /* 3. МАТНИ ДАЪВАТ АЗ НОМИ ПАДАРУ МОДАР */
+        /* 2. МАТНИ ДАЪВАТ АЗ НОМИ ПАДАРУ МОДАР */
         .poem-section {
             background-image: linear-gradient(rgba(253, 252, 251, 0.88), rgba(253, 252, 251, 0.88)), 
                               url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1200');
@@ -191,7 +160,7 @@
             margin-bottom: 15px;
         }
 
-        /* БАХШИ ШЕЪРҲО ВА СУХАНҲО */
+        /* 3. БАХШИ ШЕЪРҲО ВА СУХАНҲО */
         .wishes-section {
             background-color: #fdfcfb;
         }
@@ -250,82 +219,6 @@
             border-top: 1px dashed #e0d5c1;
         }
 
-        /* 5. АНКЕТАИ МЕҲМОН */
-        .rsvp-section {
-            background-image: linear-gradient(rgba(250, 247, 242, 0.92), rgba(250, 247, 242, 0.92)), 
-                              url('https://images.unsplash.com/photo-1478812954026-9c750f0e89fc?q=80&w=1200');
-            border-top: 1px solid #f2ebe0;
-        }
-
-        .rsvp-form {
-            background: #ffffff;
-            padding: 50px 40px;
-            border: 1px solid #f2ebe0;
-            max-width: 580px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            color: #555;
-            font-weight: 500;
-        }
-
-        .form-group input[type="text"] {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #e0d5c1;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            outline: none;
-            background-color: #fdfcfb;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 25px;
-            margin-top: 8px;
-        }
-
-        .radio-group label {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: none;
-            font-size: 0.95rem;
-            color: #3d3d3d;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 16px;
-            background-color: #c5a880;
-            color: white;
-            border: none;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .btn-submit:hover {
-            background-color: #b0936b;
-        }
-
         footer {
             padding: 60px 20px;
             text-align: center;
@@ -351,7 +244,6 @@
             .hero-family-label { font-size: 1.8rem; }
             .section-title { font-size: 2.2rem; }
             .poem-box { font-size: 1.4rem; padding: 35px 20px; }
-            .rsvp-form { padding: 35px 20px; }
             .details-card { padding: 35px 20px; }
         }
     </style>
@@ -368,19 +260,6 @@
         </div>
         <div class="hero-date">12 ИЮЛИ СОЛИ 2026</div>
     </div>
-
-    <section id="timer" class="countdown-section">
-        <div class="section-content">
-            <h2 class="section-title">То рӯзи маҳфил боқӣ монд</h2>
-            <div class="section-divider"><span>♦</span></div>
-            <div class="countdown-container">
-                <div class="countdown-item"><span class="countdown-number" id="days">00</span><p style="font-size:0.8rem;color:#888;">Рӯз</p></div>
-                <div class="countdown-item"><span class="countdown-number" id="hours">00</span><p style="font-size:0.8rem;color:#888;">Соат</p></div>
-                <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><p style="font-size:0.8rem;color:#888;">Дақиқа</p></div>
-                <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><p style="font-size:0.8rem;color:#888;">Сония</p></div>
-            </div>
-        </div>
-    </section>
 
     <section class="poem-section">
         <div class="section-content">
@@ -440,70 +319,10 @@
         </div>
     </section>
 
-    <section class="rsvp-section">
-        <div class="section-content">
-            <h2 class="section-title">Тасдиқи ташриф</h2>
-            <div class="section-divider"><span>♦</span></div>
-            <p style="text-align: center; margin-bottom: 40px; color: #666;">Лутфан, анкетаро пур кунед, то омадани шумо ба мо маълум гардад.</p>
-            
-            <form class="rsvp-form" id="weddingForm">
-                <div class="form-group">
-                    <label for="name">Ном ва насаби шумо</label>
-                    <input type="text" id="name" placeholder="Номи худро ворид кунед" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Оё шумо ташриф меоред?</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="attendance" id="attendYes" value="Бале, бо камоли мамнуният" checked> Бале, меоям</label>
-                        <label><input type="radio" name="attendance" id="attendNo" value="Мутаассифона, омада наметавонам"> Наметавонам</label>
-                    </div>
-                </div>
-
-                <button type="button" class="btn-submit" onclick="sendToWhatsApp()">Ҷавобро фиристодан ✨</button>
-            </form>
-        </div>
-    </section>
-
     <footer>
         <span>Бо эҳтиром:</span>
-        Tuранбоевҳо ва Раҳимовҳо • 2026
+        Туранбоевҳо ва Раҳимовҳо • 2026
     </footer>
 
-    <script>
-        const weddingDate = new Date(2026, 6, 12, 19, 0, 0).getTime();
-        const phoneNumber = "992918837038"; 
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = weddingDate - now;
-            if (difference < 0) { return; }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        function sendToWhatsApp() {
-            const name = document.getElementById('name').value;
-            let attendance = document.getElementById('attendYes').checked ? "Бале, бо камоли мамнуният" : "Мутаассифона, омада наметавонам";
-
-            if(!name) { 
-                alert("Лутфан, ном ва насаби худро ворид кунед."); 
-                return; 
-            }
-
-            const text = `Ассалому алейкум! Ҷавоби нав ба даъватнома аз сайт 🎉%0A%0A*Меҳмон:* ${encodeURIComponent(name)}%0A*Ташриф:* ${encodeURIComponent(attendance)}`;
-            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
-        }
-    </script>
 </body>
 </html>
